@@ -22,10 +22,14 @@ public class OrderDetailsEntity {
     private int price;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "orderId")
     private OrdersEntity order;
 
     @ManyToOne
-    @JoinColumn(name = "dish_id")
+    @JoinColumn(name = "dishId")
     private DishEntity dish;
+
+    @ManyToOne
+    @JoinColumn(name = "drinkId")
+    private DrinksEntity drinks;
 }

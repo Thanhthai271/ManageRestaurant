@@ -27,7 +27,7 @@ public class ShiftsEntity {
     private String endTime;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "employeeId")
     private EmployeesEntity employees;
 
 }

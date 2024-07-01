@@ -25,6 +25,6 @@ public class DishEntity {
     private String price;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "categoryId")
     private CategoryEntity category;
 }

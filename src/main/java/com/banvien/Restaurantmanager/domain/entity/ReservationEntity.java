@@ -25,11 +25,11 @@ public class             ReservationEntity {
     private int numberOfGuest;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customerId")
     private CustomerEntity customer;
 
     @ManyToOne
-    @JoinColumn(name = "table_id")
+    @JoinColumn(name = "tableId")
     private TablesEntity tables;
 
 }

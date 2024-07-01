@@ -5,9 +5,10 @@ import com.banvien.Restaurantmanager.Service.ReservationService;
 import com.banvien.Restaurantmanager.domain.entity.ReservationEntity;
 import com.banvien.Restaurantmanager.domain.request.ReservationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ReservationServiceImpl implements ReservationService {
 
     @Autowired

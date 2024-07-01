@@ -5,9 +5,11 @@ import com.banvien.Restaurantmanager.Service.EmployeesService;
 import com.banvien.Restaurantmanager.domain.entity.EmployeesEntity;
 import com.banvien.Restaurantmanager.domain.request.EmployeesRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmployeesServiceImpl implements EmployeesService {
 
     @Autowired

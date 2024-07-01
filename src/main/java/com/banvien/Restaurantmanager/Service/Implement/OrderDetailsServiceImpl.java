@@ -5,9 +5,10 @@ import com.banvien.Restaurantmanager.Service.OrderDetailsService;
 import com.banvien.Restaurantmanager.domain.entity.OrderDetailsEntity;
 import com.banvien.Restaurantmanager.domain.request.OrderDetailsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class OrderDetailsServiceImpl implements OrderDetailsService {
 
     @Autowired
