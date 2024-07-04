@@ -44,8 +44,22 @@ public class DishServiceImpl implements DishService {
                 .findById(request.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
-        dishEntity.setCategory(categoryEntity);
+        dishEntity.setCategoryId(categoryEntity);
         return dishRepository.save(dishEntity);
+    }
+
+    @Override
+    public DishEntity updateDish(Long id, DishRequest request) {
+        DishEntity existingDish = dishRepository.findById(id).orElse(null);
+        existingDish.setName(request.getName());
+        existingDish.setDescription(request.getDescription());
+        existingDish.setPrice(request.getPrice());
+
+        CategoryEntity categoryIdEntity = categoryRepository
+                .findById(request.getCategoryId())
+                        .orElseThrow(() -> new RuntimeException("Category not found"));
+        existingDish.setCategoryId(categoryIdEntity);
+        return dishRepository.save(existingDish);
     }
 
     @Override

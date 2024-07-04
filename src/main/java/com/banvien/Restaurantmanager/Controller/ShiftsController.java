@@ -40,17 +40,16 @@ public class ShiftsController {
                 .build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public GenericResponse<String> updateShift(@PathVariable Long id, @RequestBody ShiftsRequest request){
-        request.setShiftId(id);
-        shiftsService.saveShift(request);
+        shiftsService.updateShift(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update shift succes")
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteShift(@PathVariable Long id){
         shiftsService.deleteShift(id);
         return GenericResponse.<String>builder()

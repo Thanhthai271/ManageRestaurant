@@ -9,5 +9,6 @@ public interface OrdersService {
     List<OrdersEntity> getAllEntity();
     OrdersEntity getOrder(Long id);
     OrdersEntity saveOrder(OrdersRequest request);
+    OrdersEntity updateOrder(Long id, OrdersRequest request);
     void deleteOrder(Long id);
 }

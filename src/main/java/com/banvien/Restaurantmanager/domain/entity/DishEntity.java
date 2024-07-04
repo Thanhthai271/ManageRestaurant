@@ -26,5 +26,5 @@ public class DishEntity {
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    private CategoryEntity category;
+    private CategoryEntity categoryId;
 }

@@ -34,6 +34,14 @@ public class TablesServiceImpl implements TablesService {
     }
 
     @Override
+    public TablesEntity updateTable(Long id, TablesRequest request) {
+        TablesEntity existingTable = tablesRepository.findById(id).orElse(null);
+        existingTable.setTableNumber(request.getTableNumber());
+        existingTable.setSeats(request.getSeats());
+        return tablesRepository.save(existingTable);
+    }
+
+    @Override
     public void deleteTable(Long id) {
         tablesRepository.deleteById(id);
     }

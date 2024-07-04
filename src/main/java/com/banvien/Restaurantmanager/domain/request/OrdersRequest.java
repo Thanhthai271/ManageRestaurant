@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 public class OrdersRequest {
     private Long orderId;
     private LocalDateTime orderDateTime;
-    private int totalAmount;
-    private String status;
     private Long customerId;
     private Long tableId;
 }

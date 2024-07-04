@@ -41,18 +41,17 @@ public class DishController {
                 .build();
     }
 
-    @PutMapping
-    public GenericResponse<String> updateDish(@RequestParam Long id, @RequestBody DishRequest request){
-        request.setId(id);
-        dishService.saveDish(request);
+    @PutMapping("/{id}")
+    public GenericResponse<String> updateDish(@PathVariable Long id, @RequestBody DishRequest request){
+        dishService.updateDish(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Save dish success")
                 .build();
     }
 
-    @DeleteMapping
-    public GenericResponse<String> deleteDish(@RequestParam Long id){
+    @DeleteMapping("/{id}")
+    public GenericResponse<String> deleteDish(@PathVariable Long id){
         dishService.deleteDish(id);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

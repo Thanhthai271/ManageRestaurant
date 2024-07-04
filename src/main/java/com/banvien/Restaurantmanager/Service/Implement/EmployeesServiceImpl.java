@@ -36,6 +36,16 @@ public class EmployeesServiceImpl implements EmployeesService {
     }
 
     @Override
+    public EmployeesEntity updateEmployee(Long id, EmployeesRequest request) {
+        EmployeesEntity existingEmployee = employeesRepository.findById(id).orElse(null);
+        existingEmployee.setName(request.getName());
+        existingEmployee.setPhoneNumber(request.getPhoneNumber());
+        existingEmployee.setPosition(request.getPosition());
+        existingEmployee.setEmail(request.getEmail());
+        return employeesRepository.save(existingEmployee);
+    }
+
+    @Override
     public void deleteEmployee(Long id) {
         employeesRepository.deleteById(id);
     }

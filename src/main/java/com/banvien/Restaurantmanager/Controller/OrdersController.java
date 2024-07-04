@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orders")
 public class OrdersController {
 
     @Autowired
@@ -39,17 +39,16 @@ public class OrdersController {
                 .build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public GenericResponse<String> updateOrder(@PathVariable Long id, @RequestBody OrdersRequest request){
-        request.setCustomerId(id);
-        ordersService.saveOrder(request);
+        ordersService.updateOrder(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Create order success")
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteOrder(@PathVariable Long id){
         ordersService.deleteOrder(id);
         return GenericResponse.<String>builder()

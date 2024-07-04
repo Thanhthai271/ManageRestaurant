@@ -40,18 +40,17 @@ public class CategoryController {
                 .build();
     }
 
-    @PutMapping
-    public GenericResponse<String> updateCategory(@RequestParam Long id, @RequestBody CategoryRequest request){
-        request.setId(id);
-        categoryService.saveCategory(request);
+    @PutMapping("/{id}")
+    public GenericResponse<String> updateCategory(@PathVariable Long id, @RequestBody CategoryRequest request){
+        categoryService.updateCategory(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Save category success")
                 .build();
     }
 
-    @DeleteMapping
-    public GenericResponse<String> deleteCategory(Long id){
+    @DeleteMapping("/{id}")
+    public GenericResponse<String> deleteCategory(@PathVariable Long id){
         categoryService.deleteCategory(id);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

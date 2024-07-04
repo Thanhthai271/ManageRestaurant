@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class DishRequest {
 
-    private Long id;
+    private Long dishId;
     private String name;
     private String description;
     private String price;

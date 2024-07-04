@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DrinkResponse {
-    private Long drinkId;
+    private Long drinkId, typeOfDrinkId;
     private String name;
     private String price;
 
@@ -14,9 +14,10 @@ public class DrinkResponse {
 
     }
 
-    public DrinkResponse(Long drinkId, String name, String price){
+    public DrinkResponse(Long typeOfDrinkId, Long drinkId, String name, String price){
         this.drinkId = drinkId;
         this.name = name;
         this.price = price;
+        this.typeOfDrinkId = typeOfDrinkId;
     }
 }

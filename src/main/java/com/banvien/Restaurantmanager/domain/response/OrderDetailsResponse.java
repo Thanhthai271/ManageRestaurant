@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class OrderDetailsResponse {
 
-    private Long orderDetailId;
+    private Long orderDetailId,employeeId,orderDrinkId;
     private Long orderId;
     private Long dishId;
     private int quanity, price;
@@ -16,11 +16,13 @@ public class OrderDetailsResponse {
 
     }
 
-    public OrderDetailsResponse(Long orderDetailId, Long orderId, Long dishId, int quanity, int price){
+    public OrderDetailsResponse(Long employeeId,Long orderDrinkId, Long orderDetailId, Long orderId, Long dishId, int quanity, int price){
         this.orderDetailId = orderDetailId;
         this.orderId = orderId;
         this.dishId = dishId;
         this.quanity = quanity;
         this.price = price;
+        this.orderDrinkId = orderDrinkId;
+        this.employeeId = employeeId;
     }
 }

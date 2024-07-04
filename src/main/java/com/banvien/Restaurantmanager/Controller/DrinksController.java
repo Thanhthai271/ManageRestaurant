@@ -41,18 +41,17 @@ public class DrinksController {
                 .build();
     }
 
-    @PutMapping
-    public GenericResponse<String> updateDrink(@RequestParam Long id, @RequestBody DrinksRequest request){
-        request.setDrinkId(id);
-        drinksService.saveDrink(request);
+    @PutMapping("/{id}")
+    public GenericResponse<String> updateDrink(@PathVariable Long id, @RequestBody DrinksRequest request){
+        drinksService.updateDrink(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update drink success")
                 .build();
     }
 
-    @DeleteMapping
-    public GenericResponse<String> deleteDrink(Long id){
+    @DeleteMapping("/{id}")
+    public GenericResponse<String> deleteDrink(@PathVariable Long id){
         drinksService.deleteDrink(id);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

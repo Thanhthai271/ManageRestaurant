@@ -20,4 +20,8 @@ public class DrinksEntity {
 
     @Column(name = "price")
     private String price;
+
+    @ManyToOne
+    @JoinColumn(name = "typeOfDrinkId")
+    private TypeOfDrinksEntity typeOfDrinkId;
 }

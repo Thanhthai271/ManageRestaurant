@@ -1,7 +1,9 @@
 package com.banvien.Restaurantmanager.Controller;
 
 import com.banvien.Restaurantmanager.Service.ReservationService;
+import com.banvien.Restaurantmanager.domain.entity.CustomerEntity;
 import com.banvien.Restaurantmanager.domain.entity.ReservationEntity;
+import com.banvien.Restaurantmanager.domain.entity.TablesEntity;
 import com.banvien.Restaurantmanager.domain.request.ReservationRequest;
 import com.banvien.Restaurantmanager.domain.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,16 +42,15 @@ public class ReservationController {
     }
 
     @PutMapping
-    public GenericResponse<String> updateReservation(@PathVariable Long id, @RequestBody ReservationRequest request){
-        request.setReservationId(id);
-        reservationService.saveReservation(request);
+    public GenericResponse<String> updateReservation(@RequestParam Long id, @RequestBody ReservationRequest request){
+      reservationService.updateReservation(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update reservation success")
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteReservation(@PathVariable Long id){
         reservationService.deleteReservation(id);
         return GenericResponse.<String>builder()

@@ -9,5 +9,6 @@ public interface EmployeesService {
     List<EmployeesEntity> getAllEmployee();
     EmployeesEntity getEmployee(Long id);
     EmployeesEntity saveEmployee(EmployeesRequest request);
+    EmployeesEntity updateEmployee(Long id, EmployeesRequest request);
     void deleteEmployee (Long id);
 }

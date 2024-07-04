@@ -23,13 +23,17 @@ public class OrderDetailsEntity {
 
     @ManyToOne
     @JoinColumn(name = "orderId")
-    private OrdersEntity order;
+    private OrdersEntity orderId;
 
     @ManyToOne
     @JoinColumn(name = "dishId")
-    private DishEntity dish;
+    private DishEntity dishId;
 
     @ManyToOne
-    @JoinColumn(name = "drinkId")
-    private DrinksEntity drinks;
+    @JoinColumn(name = "orderdrinkId")
+    private OrderDrinksEntity orderDrinkId;
+
+    @ManyToOne
+    @JoinColumn(name = "employeeId")
+    private EmployeesEntity employeeId;
 }

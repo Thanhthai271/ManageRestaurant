@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OrderDetailsRequest {
-    private Long orderDetailId;
+    private Long orderDetailId,orderDrinkId,employeeId;
     private Long orderId;
     private Long dishId;
     private int quanity;

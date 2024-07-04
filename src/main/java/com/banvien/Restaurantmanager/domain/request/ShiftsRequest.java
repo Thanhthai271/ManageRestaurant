@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 public class ShiftsRequest {
     private Long shiftId;
-    private Long employeeId;
-    private LocalDateTime shiftdate;
-    private String starTime;
+    private String name;
+    private String startTime;
     private String endTime;
 }

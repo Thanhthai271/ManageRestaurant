@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerController {
 
     @Autowired
@@ -40,18 +40,17 @@ public class CustomerController {
                 .build();
     }
 
-    @PutMapping
-    public GenericResponse<String> updateCus(@RequestParam Long id, @RequestBody CustomerRequest request){
-        request.setCustomerId(id);
-        customerService.saveCus(request);
+    @PutMapping("/{id}")
+    public GenericResponse<String> updateCus(@PathVariable Long id, @RequestBody CustomerRequest request){
+        customerService.updateCus(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update cus success")
                 .build();
     }
 
-    @DeleteMapping
-    public GenericResponse<String> deleteCus(Long id){
+    @DeleteMapping("/{id}")
+    public GenericResponse<String> deleteCus(@PathVariable Long id){
         customerService.deleteCus(id);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

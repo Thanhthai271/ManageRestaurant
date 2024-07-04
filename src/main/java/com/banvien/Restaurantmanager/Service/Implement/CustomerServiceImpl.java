@@ -36,6 +36,16 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public CustomerEntity updateCus(Long id, CustomerRequest request) {
+        CustomerEntity existingCus = customerRespository.findById(id).orElse(null);
+        existingCus.setName(request.getName());
+        existingCus.setPhonenumber(request.getPhoneNumber());
+        existingCus.setEmail(request.getEmail());
+        existingCus.setAddress(request.getAddress());
+        return customerRespository.save(existingCus);
+    }
+
+    @Override
     public void deleteCus(Long id) {
         customerRespository.deleteById(id);
     }

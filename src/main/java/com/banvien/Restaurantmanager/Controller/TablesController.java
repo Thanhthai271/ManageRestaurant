@@ -41,18 +41,17 @@ public class TablesController {
                 .build();
     }
 
-    @PutMapping
-    public GenericResponse<String> updateTable(@RequestParam Long id, @RequestBody TablesRequest request){
-        request.setTableId(id);
-        tablesService.saveTable(request);
+    @PutMapping("/{id}")
+    public GenericResponse<String> updateTable(@PathVariable Long id, @RequestBody TablesRequest request){
+        tablesService.updateTable(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update table success")
                 .build();
     }
 
-    @DeleteMapping
-    public GenericResponse<String> deleteTable(Long id){
+    @DeleteMapping("/{id}")
+    public GenericResponse<String> deleteTable(@PathVariable Long id){
         tablesService.deleteTable(id);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

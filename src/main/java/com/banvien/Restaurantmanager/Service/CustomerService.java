@@ -9,5 +9,6 @@ public interface CustomerService {
     List<CustomerEntity> getAllCus();
     CustomerEntity getCus(Long id);
     CustomerEntity saveCus(CustomerRequest request);
+    CustomerEntity updateCus(Long id, CustomerRequest request);
     void deleteCus(Long id);
 }

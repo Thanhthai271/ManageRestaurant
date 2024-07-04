@@ -26,10 +26,10 @@ public class             ReservationEntity {
 
     @ManyToOne
     @JoinColumn(name = "customerId")
-    private CustomerEntity customer;
+    private CustomerEntity customerId;
 
     @ManyToOne
     @JoinColumn(name = "tableId")
-    private TablesEntity tables;
+    private TablesEntity tableId;
 
 }

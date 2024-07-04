@@ -9,5 +9,6 @@ public interface CategoryService {
     List<CategoryEntity> getAllCategory();
     CategoryEntity getCategory(Long id);
     CategoryEntity saveCategory(CategoryRequest request);
+    CategoryEntity updateCategory(Long id, CategoryRequest request);
     void deleteCategory(Long id);
 }

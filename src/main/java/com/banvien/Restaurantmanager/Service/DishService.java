@@ -10,5 +10,6 @@ public interface DishService {
     List<DishEntity> getAllDish();
     DishEntity getDish(Long id);
     DishEntity saveDish(DishRequest request);
+    DishEntity updateDish(Long id, DishRequest request);
     void deleteDish(Long id);
 }

@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 public class ShiftsResponse {
     private Long shiftId;
-    private Long employeeId;
-    private LocalDateTime shiftDate;
+    private String name;
     private String startTime;
     private String endTime;
 
@@ -18,10 +17,9 @@ public class ShiftsResponse {
 
     }
 
-    public ShiftsResponse(Long shiftId, Long employeeId, LocalDateTime shiftDate, String startTime, String endTime){
+    public ShiftsResponse(Long shiftId, String name, String startTime, String endTime){
         this.shiftId = shiftId;
-        this.employeeId = employeeId;
-        this.shiftDate = shiftDate;
+        this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
     }

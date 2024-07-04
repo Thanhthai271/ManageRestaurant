@@ -40,17 +40,16 @@ public class OdersDetailsController {
                 .build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public GenericResponse<String> updateOrderDetails(@PathVariable Long id, @RequestBody OrderDetailsRequest request){
-        request.setOrderDetailId(id);
-        orderDetailsService.saveOrderDetail(request);
+        orderDetailsService.updateOrderDetail(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update orderDetails success")
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteOrderDetails(@PathVariable Long id){
         orderDetailsService.deleteOrderDetail(id);
         return GenericResponse.<String>builder()

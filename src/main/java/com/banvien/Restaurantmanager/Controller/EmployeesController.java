@@ -39,17 +39,16 @@ public class EmployeesController {
                 .build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public GenericResponse<String> updateEmployee(@PathVariable Long id, @RequestBody EmployeesRequest request){
-        request.setEmployeeId(id);
-        employeesService.saveEmployee(request);
+        employeesService.updateEmployee(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
                 .message("Update employees success")
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteEmployee(@PathVariable Long id){
         employeesService.deleteEmployee(id);
         return GenericResponse.<String>builder()

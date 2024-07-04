@@ -9,5 +9,6 @@ public interface OrderDetailsService {
     List<OrderDetailsEntity> getAllOrderDetails();
     OrderDetailsEntity getOrderDetail(Long id);
     OrderDetailsEntity saveOrderDetail(OrderDetailsRequest request);
+    OrderDetailsEntity updateOrderDetail(Long id, OrderDetailsRequest request);
     void deleteOrderDetail(Long id);
 }

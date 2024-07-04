@@ -20,17 +20,11 @@ public class OrdersEntity {
     @Column(name = "orderDateTime")
     private LocalDateTime orderDateTime;
 
-    @Column(name = "totalAmounts")
-    private int totalAmounts;
-
-    @Column(name = "status")
-    private String status;
-
     @ManyToOne
     @JoinColumn(name = "customerId")
-    private CustomerEntity customer;
+    private CustomerEntity customerId;
 
     @ManyToOne
     @JoinColumn(name = "tableId")
-    private TablesEntity tables;
+    private TablesEntity tableId;
 }

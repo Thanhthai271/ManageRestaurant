@@ -17,17 +17,13 @@ public class ShiftsEntity {
     @Column(name = "ShiftId")
     private Long ShiftId;
 
-    @Column(name = "ShiftDate")
-    private LocalDateTime ShiftDate;
+    @Column(name = "Name")
+    private String Name;
 
     @Column(name = "startTime")
     private String startTime;
 
     @Column(name = "endTime")
     private String endTime;
-
-    @ManyToOne
-    @JoinColumn(name = "employeeId")
-    private EmployeesEntity employees;
 
 }

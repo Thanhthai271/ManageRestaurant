@@ -9,5 +9,6 @@ public interface ReservationService {
     List<ReservationEntity> getAllReservation();
     ReservationEntity getReservation(Long id);
     ReservationEntity saveReservation(ReservationRequest request);
+    ReservationEntity updateReservation(Long id, ReservationRequest request);
     void deleteReservation(Long id);
 }
