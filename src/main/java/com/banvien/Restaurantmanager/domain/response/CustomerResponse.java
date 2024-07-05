@@ -9,13 +9,13 @@ import lombok.Setter;
 public class CustomerResponse {
     private Long customerId;
     private String name,email,address;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public CustomerResponse(){
 
     }
 
-    public CustomerResponse(String name, String email, String address, Long customerId, int phoneNumber){
+    public CustomerResponse(String name, String email, String address, Long customerId, String phoneNumber){
         this.customerId = customerId;
         this.name = name;
         this.phoneNumber = phoneNumber;

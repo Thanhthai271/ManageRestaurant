@@ -1,10 +1,9 @@
 package com.banvien.Restaurantmanager.Controller;
 
 
-import com.banvien.Restaurantmanager.Service.Implement.TablesServiceImpl;
-import com.banvien.Restaurantmanager.domain.entity.TablesEntity;
-import com.banvien.Restaurantmanager.domain.request.CustomerRequest;
-import com.banvien.Restaurantmanager.domain.request.TablesRequest;
+import com.banvien.Restaurantmanager.Service.Implement.DinningTableServiceImpl;
+import com.banvien.Restaurantmanager.domain.entity.DinningTableEntity;
+import com.banvien.Restaurantmanager.domain.request.DinningTableRequest;
 import com.banvien.Restaurantmanager.domain.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tables")
-public class TablesController {
+@RequestMapping("/dinningtable")
+public class DinningTableController {
 
     @Autowired
-    TablesServiceImpl tablesService;
+    DinningTableServiceImpl tablesService;
 
     @GetMapping
-    public List<TablesEntity> getAllTables(){
+    public List<DinningTableEntity> getAllTables(){
         return tablesService.getAllTables();
     }
 
@@ -33,7 +32,7 @@ public class TablesController {
     }
 
     @PostMapping
-    public GenericResponse<String> createTable(@RequestBody TablesRequest request){
+    public GenericResponse<String> createTable(@RequestBody DinningTableRequest request){
         tablesService.saveTable(request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)
@@ -42,7 +41,7 @@ public class TablesController {
     }
 
     @PutMapping("/{id}")
-    public GenericResponse<String> updateTable(@PathVariable Long id, @RequestBody TablesRequest request){
+    public GenericResponse<String> updateTable(@PathVariable Long id, @RequestBody DinningTableRequest request){
         tablesService.updateTable(id,request);
         return GenericResponse.<String>builder()
                 .success(Boolean.TRUE)

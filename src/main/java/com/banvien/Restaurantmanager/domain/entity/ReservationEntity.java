@@ -29,7 +29,7 @@ public class             ReservationEntity {
     private CustomerEntity customerId;
 
     @ManyToOne
-    @JoinColumn(name = "tableId")
-    private TablesEntity tableId;
+    @JoinColumn(name = "dinningTableId")
+    private DinningTableEntity dinningTableId;
 
 }

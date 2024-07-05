@@ -26,6 +26,6 @@ public class CustomerEntity {
     private String address;
 
     @Column(name = "phonenumber")
-    private int phonenumber;
+    private String phonenumber;
 
 }

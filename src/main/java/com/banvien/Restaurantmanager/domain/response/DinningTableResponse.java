@@ -5,16 +5,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TablesResponse {
-    private Long tableId;
+public class DinningTableResponse {
+    private Long dinningTableId;
     private int tableNumber,seats;
 
-    public TablesResponse(){
+    public DinningTableResponse(){
 
     }
 
-    public TablesResponse(Long tableId, int tableNumber, int seats){
-        this.tableId = tableId;
+    public DinningTableResponse(Long dinningTableId, int tableNumber, int seats){
+        this.dinningTableId = dinningTableId;
         this.tableNumber = tableNumber;
         this.seats = seats;
     }

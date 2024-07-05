@@ -11,5 +11,5 @@ public class OrdersRequest {
     private Long orderId;
     private LocalDateTime orderDateTime;
     private Long customerId;
-    private Long tableId;
+    private Long dinningTableId;
 }

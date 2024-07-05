@@ -8,12 +8,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Tables")
-public class TablesEntity {
+public class DinningTableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tableId")
-    private Long tableId;
+    @Column(name = "dinningtableId")
+    private Long dinningTableId;
 
     @Column(name = "tableNumber")
     private int tableNumber;

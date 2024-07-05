@@ -8,7 +8,7 @@ import lombok.Setter;
 public class CustomerRequest {
     private Long customerId;
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
     private String address;
 }

@@ -39,7 +39,7 @@ public class EmployeeShiftController {
                .build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public GenericResponse<String> updateEmployeeShift(@PathVariable Long id, @RequestBody EmployeeShiftRequest request){
         employeeShiftService.updateEmployeeShift(id, request);
         return GenericResponse.<String>builder()
@@ -48,7 +48,7 @@ public class EmployeeShiftController {
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public GenericResponse<String> deleteEmployeeShift(@PathVariable Long id){
         employeeShiftService.deleteEmployeeShift(id);
         return GenericResponse.<String>builder()

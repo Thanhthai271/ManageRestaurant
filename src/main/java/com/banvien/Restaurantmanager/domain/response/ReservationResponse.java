@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ReservationResponse {
-    private Long reservationId, customerId, tableId;
+    private Long reservationId, customerId, dinningTableId;
     private LocalDateTime reservationDateTime;
     private int numberOfGuest;
 
@@ -16,10 +16,10 @@ public class ReservationResponse {
 
     }
 
-    public ReservationResponse(Long reservationId, Long customerId, Long tableId, LocalDateTime reservationDateTime, int numberOfGuest){
+    public ReservationResponse(Long reservationId, Long customerId, Long dinningTableId, LocalDateTime reservationDateTime, int numberOfGuest){
         this.reservationId = reservationId;
         this.customerId = customerId;
-        this.tableId = tableId;
+        this.dinningTableId = dinningTableId;
         this.reservationDateTime = reservationDateTime;
         this.numberOfGuest = numberOfGuest;
     }

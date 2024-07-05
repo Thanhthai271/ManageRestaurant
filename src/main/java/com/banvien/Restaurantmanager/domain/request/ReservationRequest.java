@@ -12,5 +12,5 @@ public class ReservationRequest {
     private LocalDateTime reservationDateTime;
     private int numberOfGuest;
     private Long customerId;
-    private Long tableId;
+    private Long dinningTableId;
 }

@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TablesRequest {
+public class DinningTableRequest {
 
-    private Long tableId;
+    private Long dinningTableId;
     private int tableNumber;
     private int seats;
 }

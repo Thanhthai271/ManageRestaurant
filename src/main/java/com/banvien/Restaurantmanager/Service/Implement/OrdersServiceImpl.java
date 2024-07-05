@@ -2,14 +2,13 @@ package com.banvien.Restaurantmanager.Service.Implement;
 
 import com.banvien.Restaurantmanager.Repository.CustomerRespository;
 import com.banvien.Restaurantmanager.Repository.OrdersRepository;
-import com.banvien.Restaurantmanager.Repository.TablesRepository;
+import com.banvien.Restaurantmanager.Repository.DinningTableRepository;
 import com.banvien.Restaurantmanager.Service.OrdersService;
 import com.banvien.Restaurantmanager.domain.entity.CustomerEntity;
 import com.banvien.Restaurantmanager.domain.entity.OrdersEntity;
-import com.banvien.Restaurantmanager.domain.entity.TablesEntity;
+import com.banvien.Restaurantmanager.domain.entity.DinningTableEntity;
 import com.banvien.Restaurantmanager.domain.request.OrdersRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class OrdersServiceImpl implements OrdersService {
 
     private final OrdersRepository ordersRepository;
     private final CustomerRespository customerRespository;
-    private final TablesRepository tablesRepository;
+    private final DinningTableRepository tablesRepository;
 
     @Override
     public List<OrdersEntity> getAllEntity() {
@@ -41,12 +40,12 @@ public class OrdersServiceImpl implements OrdersService {
                 .findById(request.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
 
-        TablesEntity tablesEntityId = tablesRepository
-                .findById((request.getTableId()))
+        DinningTableEntity tablesEntityId = tablesRepository
+                .findById((request.getDinningTableId()))
                 .orElseThrow(() -> new RuntimeException("Table not found"));
 
         orders.setCustomerId(customerIdEntity);
-        orders.setTableId(tablesEntityId);
+        orders.setDinningTableId(tablesEntityId);
         return ordersRepository.save(orders);
     }
 
@@ -55,15 +54,15 @@ public class OrdersServiceImpl implements OrdersService {
         OrdersEntity existingOrder = ordersRepository.findById(id).orElse(null);
         existingOrder.setOrderDateTime(request.getOrderDateTime());
 
-        TablesEntity tableIdEntity = tablesRepository
-                .findById(request.getTableId())
+        DinningTableEntity tableIdEntity = tablesRepository
+                .findById(request.getDinningTableId())
                 .orElseThrow(() -> new RuntimeException("Table not found"));
 
         CustomerEntity customerIdEntity = customerRespository
                 .findById(request.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
 
-        existingOrder.setTableId(tableIdEntity);
+        existingOrder.setDinningTableId(tableIdEntity);
         existingOrder.setCustomerId(customerIdEntity);
         return ordersRepository.save(existingOrder);
     }

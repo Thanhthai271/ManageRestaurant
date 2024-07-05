@@ -1,9 +1,7 @@
 package com.banvien.Restaurantmanager.Controller;
 
 import com.banvien.Restaurantmanager.Service.ReservationService;
-import com.banvien.Restaurantmanager.domain.entity.CustomerEntity;
 import com.banvien.Restaurantmanager.domain.entity.ReservationEntity;
-import com.banvien.Restaurantmanager.domain.entity.TablesEntity;
 import com.banvien.Restaurantmanager.domain.request.ReservationRequest;
 import com.banvien.Restaurantmanager.domain.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;

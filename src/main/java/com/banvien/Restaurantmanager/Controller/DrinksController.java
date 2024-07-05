@@ -2,9 +2,7 @@ package com.banvien.Restaurantmanager.Controller;
 
 import com.banvien.Restaurantmanager.Service.Implement.DrinksServiceImpl;
 import com.banvien.Restaurantmanager.domain.entity.DrinksEntity;
-import com.banvien.Restaurantmanager.domain.entity.TablesEntity;
 import com.banvien.Restaurantmanager.domain.request.DrinksRequest;
-import com.banvien.Restaurantmanager.domain.request.TablesRequest;
 import com.banvien.Restaurantmanager.domain.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/drinks")
+@RequestMapping("/drink")
 public class DrinksController {
 
     @Autowired
