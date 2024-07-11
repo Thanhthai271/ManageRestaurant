@@ -6,8 +6,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryRequest {
+public class FoodRequest {
+
+    private Long foodId;
+    private String name;
+    private String description;
+    private String price;
     private Long categoryId;
-    private String categoryFood;
-    private String categoryDrink;
 }

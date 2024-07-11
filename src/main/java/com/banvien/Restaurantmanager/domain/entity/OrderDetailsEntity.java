@@ -13,7 +13,7 @@ public class OrderDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orderDetailId")
-    private Long orderDetailId;
+    private Long orderDetail;
 
     @Column(name = "quanity")
     private int quanity;
@@ -23,17 +23,13 @@ public class OrderDetailsEntity {
 
     @ManyToOne
     @JoinColumn(name = "orderId")
-    private OrdersEntity orderId;
+    private OrdersEntity order;
 
     @ManyToOne
-    @JoinColumn(name = "dishId")
-    private DishEntity dishId;
-
-    @ManyToOne
-    @JoinColumn(name = "orderdrinkId")
-    private OrderDrinksEntity orderDrinkId;
+    @JoinColumn(name = "foodId")
+    private FoodEntity food;
 
     @ManyToOne
     @JoinColumn(name = "employeeId")
-    private EmployeesEntity employeeId;
+    private EmployeesEntity employee;
 }

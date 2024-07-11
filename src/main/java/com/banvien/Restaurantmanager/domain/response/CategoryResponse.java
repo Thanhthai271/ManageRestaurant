@@ -6,15 +6,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryResponse {
-    private Long id;
-    private String name;
+    private Long categoryId;
+    private String categoryFood;
+    private String categoryDrink;
 
     public CategoryResponse(){
 
     }
 
-    public CategoryResponse(Long id, String name){
-        this.id = id;
-        this.name = name;
+    public CategoryResponse(Long categoryId, String categoryFood, String categoryDrink){
+        this.categoryId = categoryId;
+        this.categoryFood = categoryFood;
+        this.categoryDrink = categoryDrink;
     }
 }

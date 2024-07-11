@@ -8,13 +8,16 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "category")
+@Table(name = "Category")
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "categoryId")
+    private long categoryId;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "categoryFood")
+    private String categoryFood;
+
+    @Column(name = "categoryDrink")
+    private String categoryDrink;
 }

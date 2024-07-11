@@ -7,15 +7,18 @@ import lombok.Setter;
 @Setter
 public class DinningTableResponse {
     private Long dinningTableId;
-    private int tableNumber,seats;
+    private Integer tableNumber;
+    private Integer seats;
+    private String status;
 
-    public DinningTableResponse(){
+//    public DinningTableResponse(){
+//
+//    }
 
-    }
-
-    public DinningTableResponse(Long dinningTableId, int tableNumber, int seats){
+    public DinningTableResponse(Integer seats, Integer tableNumber, Long dinningTableId, String status){
         this.dinningTableId = dinningTableId;
         this.tableNumber = tableNumber;
         this.seats = seats;
+        this.status = status;
     }
 }

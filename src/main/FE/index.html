@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinning Table Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Dinning Table Information</h2>
+        <button id="fetchButton">Fetch Dinning Table Info</button>
+        <div id="result" class="result"></div>
+    </div>
+	
+	<div class="container">
+    <h2>Foods Information</h2>
+    <button id="fetchFoodsButton">Fetch Foods Info</button>
+    <div id="foodsResult" class="result"></div>
+</div>
+
+
+		<div class="container">
+    <h2>Order Information</h2>
+    <button id="fetchOrderButton">Fetch Order Info</button>
+    <div id="orderResult" class="result"></div>
+</div>
+
+
+	<div class="container">
+    <h2>Employee Information</h2>
+    <button id="fetchEmployeeButton">Fetch Employee Info</button>
+    <div id="employeeResult" class="result"></div>
+</div>
+
+    <script>
+	
+	document.getElementById('fetchEmployeeButton').addEventListener('click', function() {
+            fetch('http://localhost:8082/employee')  // Thay URL này bằng URL thực tế của API Employees của bạn
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    const resultDiv = document.getElementById('employeeResult');
+                    resultDiv.innerHTML = '';
+
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.innerHTML = `
+                            <p><strong>Shift ID:</strong> ${item.shiftId}</p>
+                            <p><strong>Name:</strong> ${item.name}</p>
+                            <p><strong>Position:</strong> ${item.position}</p>
+                            <hr>
+                        `;
+                        resultDiv.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('employeeResult').innerHTML = 'Error fetching data';
+                });
+        });
+	
+	
+	document.getElementById('fetchOrderButton').addEventListener('click', function() {
+            fetch('http://localhost:8082/order')  // Thay URL này bằng URL thực tế của API Orders của bạn
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    const resultDiv = document.getElementById('orderResult');
+                    resultDiv.innerHTML = '';
+
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.innerHTML = `
+                            <p><strong>Customer ID:</strong> ${item.customerId}</p>
+                            <p><strong>Employee ID:</strong> ${item.employeeId}</p>
+                            <p><strong>Booking ID:</strong> ${item.bookingId}</p>
+                            <p><strong>Payment Status:</strong> ${item.paymentStatus}</p>
+                            <p><strong>Status:</strong> ${item.status}</p>
+                            <hr>
+                        `;
+                        resultDiv.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('orderResult').innerHTML = 'Error fetching data';
+                });
+        });
+	
+	
+	document.getElementById('fetchFoodsButton').addEventListener('click', function() {
+    fetch('http://localhost:8082/food')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json(); // Chuyển đổi dữ liệu JSON
+        })
+        .then(foods => {
+            console.log('Foods data:', foods); // In dữ liệu ra console để kiểm tra
+            const foodsResultDiv = document.getElementById('foodsResult');
+            foodsResultDiv.innerHTML = '';
+
+            foods.forEach(food => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                 
+						<p><strong>Name:</strong> ${food.name}</p>
+						<p><strong>Description:</strong> ${food.description}</p>
+						<p><strong>Price:</strong> ${food.price}</p>
+						<p><strong>Category_Food:</strong> ${food.categoryFood}</p>
+						<p><strong>Category_Drink:</strong> ${food.categoryDrink}</p>
+						<hr>
+                `;
+                foodsResultDiv.appendChild(div);
+            });
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            document.getElementById('foodsResult').innerHTML = 'Error fetching foods data';
+        });
+});
+	
+
+document.getElementById('fetchButton').addEventListener('click', function() {
+    fetch('http://localhost:8082/dinningTable')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);  // In ra console để kiểm tra dữ liệu
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+				
+					<p><strong>Dinning Table ID:</strong> ${item.dinningTableId}</p>         
+                    <p><strong>Table Number:</strong> ${item.tableNumber}</p>
+					<p><strong>Seats:</strong> ${item.seats}</p>
+                    <p><strong>Status:</strong> ${item.status}</p>
+                    <hr>
+                `;
+                resultDiv.appendChild(div);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById('result').innerHTML = 'Error fetching data';
+        });
+		
+		fetch('http://localhost:8082/dinningTable')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Xử lý dữ liệu trả về ở đây
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+        document.getElementById('result').innerHTML = 'Error fetching data';
+    });
+});
+
+    </script>
+</body>
+</html>

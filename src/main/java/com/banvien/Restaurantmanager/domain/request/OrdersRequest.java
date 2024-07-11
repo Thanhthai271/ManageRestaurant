@@ -3,13 +3,14 @@ package com.banvien.Restaurantmanager.domain.request;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
 public class OrdersRequest {
-    private Long orderId;
-    private LocalDateTime orderDateTime;
     private Long customerId;
-    private Long dinningTableId;
+    private Long bookingId;
+    private Long employeeId;
+    private String status;
+    private List<OrderDetailsRequest> orderDetails;
 }
