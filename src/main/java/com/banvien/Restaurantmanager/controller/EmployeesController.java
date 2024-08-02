@@ -1,5 +1,6 @@
 package com.banvien.Restaurantmanager.controller;
 
+import com.banvien.Restaurantmanager.domain.response.DTO.DTOEmployee;
 import com.banvien.Restaurantmanager.service.EmployeesService;
 import com.banvien.Restaurantmanager.domain.entity.EmployeesEntity;
 import com.banvien.Restaurantmanager.domain.request.EmployeesRequest;
@@ -17,8 +18,8 @@ public class EmployeesController {
     EmployeesService employeesService;
 
     @GetMapping
-    public List<EmployeesEntity> getAllEmployee(){
-        return employeesService.getAllEmployee();
+    public List<DTOEmployee> getAllEmployeeShift(){
+        return employeesService.getAllEmployeeShift();
     }
 
     @GetMapping("/{id}")

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 200px;
+            background: #2c3e50;
+            position: fixed;
+            height: 100%;
+            color: #ecf0f1;
+        }
+        .sidebar .logo {
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            background: #34495e;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a:hover {
+            background: #34495e;
+        }
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        header {
+            background: #ecf0f1;
+            padding: 10px;
+            text-align: right;
+        }
+        header .user-info {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .content {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .add-food {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+        }
+        .add-food:hover {
+            background: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 5px 10px;
+            background: #2980b9;
+            color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3498db;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo">POS System</div>
+    <ul>
+        <li><a href="#" id="dashboard-link">Dashboard</a></li>
+        <li><a href="/page/Food.html" id="food-link">Food</a></li>
+        <li><a href="#" id="products-link">Products</a></li>
+        <li><a href="/page/DinningTable.html" id="dntable-link">Tables</a></li>
+        <li><a href="/page/Employee.html" id="employee-link">Employee</a></li>
+        <li><a href="#" id="pos-link">POS</a></li>
+        <li><a href="#" id="kitchen-link">Kitchen</a></li>
+        <li><a href="#" id="reports-link">Reports</a></li>
+        <li><a href="#" id="settings-link">Settings</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <header>
+        <div class="user-info">
+            <span>Admin</span>
+            <button>Logout</button>
+        </div>
+    </header>
+
+    <div id="employee-content" class="content hidden">
+        <h1>Employee List</h1>
+        <button id="add-employee">Add Employee</button>
+        <table id="employee-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="employee-table-body">
+            <!-- Dữ liệu nhân viên sẽ được hiển thị ở đây -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Các phần khác của nội dung -->
+    <div id="dashboard-content" class="content">
+        <!-- Nội dung dashboard -->
+    </div>
+</div>
+
+<script src="Employee.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ package com.banvien.Restaurantmanager.service.Implement;
 
 import com.banvien.Restaurantmanager.repository.CategoryRepository;
 import com.banvien.Restaurantmanager.repository.FoodRepository;
-import com.banvien.Restaurantmanager.repository.MenuRepository;
+import com.banvien.Restaurantmanager.repository.DTO.DTOMenuRepository;
 import com.banvien.Restaurantmanager.service.FoodService;
 import com.banvien.Restaurantmanager.domain.entity.CategoryEntity;
 import com.banvien.Restaurantmanager.domain.entity.FoodEntity;
@@ -21,11 +21,12 @@ public class FoodServiceImpl implements FoodService {
 
     private final FoodRepository dishRepository;
     private final CategoryRepository categoryFoodRepository;
-    private final MenuRepository menuRepository;
+    private final DTOMenuRepository menuRepository;
 
     public List<DTOMenu> getAllMenu(){
         List<Tuple> result = menuRepository.GetAllMenu();
         return result.stream().map(tuple -> new DTOMenu(
+                tuple.get("food_id", Long.class),
                 tuple.get("name", String.class),
                 tuple.get("description", String.class),
                 tuple.get("price", String.class),

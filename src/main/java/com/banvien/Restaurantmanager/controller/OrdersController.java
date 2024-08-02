@@ -1,5 +1,6 @@
 package com.banvien.Restaurantmanager.controller;
 
+import com.banvien.Restaurantmanager.domain.response.DTO.DTOOrder;
 import com.banvien.Restaurantmanager.service.OrdersService;
 import com.banvien.Restaurantmanager.domain.entity.OrdersEntity;
 import com.banvien.Restaurantmanager.domain.request.OrdersRequest;
@@ -17,8 +18,8 @@ public class OrdersController {
     OrdersService ordersService;
 
     @GetMapping
-    public List<OrdersEntity> getAllOrder(){
-        return ordersService.getAllOrder();
+    public List<DTOOrder> getAllOrder(){
+        return ordersService.GetAllOrders();
     }
 
     @GetMapping("/{id}")
